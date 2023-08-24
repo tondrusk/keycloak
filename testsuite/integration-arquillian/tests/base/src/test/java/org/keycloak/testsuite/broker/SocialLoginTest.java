@@ -372,6 +372,7 @@ public class SocialLoginTest extends AbstractKeycloakTest {
     public void githubLogin() throws InterruptedException {
         setTestProvider(GITHUB);
         performLogin();
+        assertUpdateProfile(true, true, false);
         appPage.assertCurrent();
         testTokenExchange();
     }
@@ -380,6 +381,7 @@ public class SocialLoginTest extends AbstractKeycloakTest {
     public void githubPrivateEmailLogin() throws InterruptedException {
         setTestProvider(GITHUB_PRIVATE_EMAIL);
         performLogin();
+        assertUpdateProfile(true, true, false);
         appPage.assertCurrent();
     }
 
@@ -538,7 +540,7 @@ public class SocialLoginTest extends AbstractKeycloakTest {
         } else {
             log.infof("already logged in to '%s'; skipping the login process", currentTestProvider.id());
         }
-        WaitUtils.pause(3000);
+        WaitUtils.pause(30000);
         WaitUtils.waitForPageToLoad();
     }
 
