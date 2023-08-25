@@ -17,6 +17,7 @@
 
 package org.keycloak.testsuite.pages.social;
 
+import org.keycloak.testsuite.util.URLUtils;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -39,6 +40,9 @@ public class LinkedInLoginPage extends AbstractSocialLoginPage {
 
     @Override
     public void login(String user, String password) {
+//        log.info("performing logout from LinkedIn");
+//        URLUtils.navigateToUri("https://linkedin.com/m/logout");
+
         usernameInput.clear();
         usernameInput.sendKeys(user);
         passwordInput.sendKeys(password);
